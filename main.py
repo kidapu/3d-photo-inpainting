@@ -19,7 +19,7 @@ from networks import Inpaint_Color_Net, Inpaint_Depth_Net, Inpaint_Edge_Net
 from MiDaS.run import run_depth
 from MiDaS.monodepth_net import MonoDepthNet
 import MiDaS.MiDaS_utils as MiDaS_utils
-from UniversalAnalytics import Tracker, HTTPRequest, HTTPBatchRequest
+from universal_analytics import Tracker, HTTPRequest, HTTPBatchRequest
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str, default='argument.yml',help='Configure of post processing')
