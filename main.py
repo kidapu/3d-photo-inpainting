@@ -34,7 +34,7 @@ sample_list = get_MiDaS_samples(config['src_folder'], config['depth_folder'], co
 normal_canvas, all_canvas = None, None
 
 with HTTPRequest() as http:
-    tracker = Tracker("G-24S58P7421", http, client_id="client-01")
+    tracker = Tracker("UA-166882787-1", http, client_id="client-01")
 
     if isinstance(config["gpu_ids"], int) and (config["gpu_ids"] >= 0):
         device = config["gpu_ids"]
