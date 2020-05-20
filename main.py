@@ -41,6 +41,8 @@ with HTTPRequest() as http:
     else:
         device = "cpu"
 
+    print("Pict List => {0}".format(sample_list))
+
     for idx in tqdm(range(len(sample_list))):
         depth = None
         sample = sample_list[idx]
@@ -125,7 +127,7 @@ with HTTPRequest() as http:
                                 videos_poses, video_basename, config.get('original_h'), config.get('original_w'), border=border, depth=depth, normal_canvas=normal_canvas, all_canvas=all_canvas,
                                 mean_loc_depth=mean_loc_depth)
 
-            tracker.send("generate", "photo", "dummy")
+            tracker.send("event", "photo", "dummy")
 
         except Exception as e:
             print("Error :", e)
