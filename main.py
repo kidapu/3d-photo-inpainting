@@ -51,6 +51,8 @@ params = {
     "repeat_inpaint_edge": [True, False],
 }
 
+default_config = config.copy()
+
 with HTTPRequest() as http:
 	tracker = Tracker("UA-166882787-1", http, client_id="client-01")
 
@@ -71,6 +73,8 @@ with HTTPRequest() as http:
 		for param_key in params:
 			for param in params[param_key]:
 				file_name = "{0}-{1}".format(param_key, param)
+				config = default_config.copy()
+				config[param_key] = param
 
 				try:
 
