@@ -2151,7 +2151,7 @@ class Canvas_view():
 
 def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, video_traj_types, ref_pose,
                     output_dir, ref_image, int_mtx, config, image, videos_poses, video_basename, original_H=None, original_W=None,
-                    border=None, depth=None, normal_canvas=None, all_canvas=None, mean_loc_depth=None):
+                    border=None, depth=None, normal_canvas=None, all_canvas=None, mean_loc_depth=None, save_file_name=None):
 
     cam_mesh = netx.Graph()
     cam_mesh.graph['H'] = Height
@@ -2276,7 +2276,13 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
         clip = ImageSequenceClip(stereos, fps=config['fps'])
         if isinstance(video_basename, list):
             video_basename = video_basename[0]
-        clip.write_videofile(os.path.join(output_dir, video_basename + '_' + video_traj_type + '.mp4'), fps=config['fps'])
+        # clip.write_videofile(os.path.join(output_dir, video_basename + '_' + video_traj_type + '.mp4'), fps=config['fps'])
+
+				if save_file_name:
+					clip.write_videofile(os.path.join(output_dir, video_basename + '_' + save_file_name + '.mp4'), fps=config['fps'])
+				else:
+					clip.write_videofile(os.path.join(output_dir, video_basename + '_' + '.mp4'), fps=config['fps'])
+
 
 
 
