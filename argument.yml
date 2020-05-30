@@ -21,6 +21,8 @@ inference_video: True
 gpu_ids: 0
 offscreen_rendering: False
 img_format: '.jpg'
+depth_format: '.npy'
+require_midas: True
 depth_threshold: 0.04
 ext_edge_threshold: 0.002
 sparse_iter: 5
@@ -41,3 +43,4 @@ extrapolate_border: True
 extrapolation_thickness: 60
 repeat_inpaint_edge: True
 crop_border: [0.03, 0.03, 0.05, 0.03]
+anti_flickering: True
