@@ -21,7 +21,7 @@ from MiDaS.run import run_depth
 from MiDaS.monodepth_net import MonoDepthNet
 import MiDaS.MiDaS_utils as MiDaS_utils
 from bilateral_filtering import sparse_bilateral_filtering
-from UniversalAnalytics import Tracker, HTTPRequest, HTTPBatchRequest
+from universal_analytics import Tracker, HTTPRequest, HTTPBatchRequest
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str, default='argument.yml', help='Configure of post processing')
