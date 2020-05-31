@@ -40,7 +40,7 @@ params = {
     "ext_edge_threshold": [0.001, 0.002, 0.003],
     "largest_size": [512, 1024],
 }
-
+default_config = config.copy()
 
 if isinstance(config["gpu_ids"], int) and (config["gpu_ids"] >= 0):
 	device = config["gpu_ids"]
@@ -55,6 +55,8 @@ with HTTPRequest() as http:
 	for param_key in params:
 			for param in params[param_key]:
 				file_name = "{0}-{1}".format(param_key, param)
+				config = default_config.copy()
+				config[param_key] = param
 
 				for idx in tqdm(range(len(sample_list))):
 					depth = None
@@ -164,7 +166,7 @@ with HTTPRequest() as http:
 																												normal_canvas=normal_canvas,
 																												all_canvas=all_canvas,
 																												mean_loc_depth=mean_loc_depth,
-																												save_file_name="")
+																												save_file_name=file_name)
 
 					except Exception as e:
 						print("Error :", e) 
