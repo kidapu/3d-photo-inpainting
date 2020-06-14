@@ -36,9 +36,10 @@ sample_list = get_MiDaS_samples(config['src_folder'], config['depth_folder'], co
 normal_canvas, all_canvas = None, None
 
 params = {
-    "depth_threshold": [0.02, 0.04, 0.06],
-    "ext_edge_threshold": [0.001, 0.002, 0.003],
-    "largest_size": [512, 1024],
+    "depth_threshold": [0.04],
+    # "depth_threshold": [0.02, 0.04, 0.06],
+    # "ext_edge_threshold": [0.001, 0.002, 0.003],
+    # "largest_size": [512, 1024],
 }
 default_config = config.copy()
 
